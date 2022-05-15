@@ -1,0 +1,103 @@
+﻿<html>
+<head>
+<title>主页</title>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=1" name="viewport">
+<meta name="description" content="Steak Web由牛排吖制作，是一个为上课摸鱼的同志们量身打造的起始页。Steak Web以最简洁的界面容纳了内置导航栏、超链接网站捷径、伪息屏等实用功能，让您的网上冲浪体验更加舒心(bushi)。">
+<link rel="shortcut icon" href="pic/icon.png">
+<link rel="apple-touch-icon" href="pic/icon.png">
+<style>
+* {margin:0px;padding:0px;}
+.nav {z-index:100;position:fixed;width:40px;height:100%;text-align:center;background:#212529;transition:all 0.4s;overflow:hidden;box-shadow:2px 2px 2px 2px 4px #000;}
+.nav:hover {width:20vw;height:100%;box-shadow:4px 4px 8px #000;}
+
+.nav>div>.ttl {font-size:0%;color:#fff;font-weight:120;border-bottom:1pt solid #fff;transition:all 0.2s ease;}
+.nav:hover>div>.ttl {font-size:160%;}
+.nav .lispan {line-height:5px;font-size:0px;transition:all 0.2s ease;color:#efefef;font-weight:350;}
+.nav:hover .lispan  {font-size:22px;}
+
+.nav .ic {vertical-align:middle;width:40px;background:rgba(245,245,246,0.1);transform-origin:50% 50%;border-radius:2px;transition:all 0.5s ease;}
+.nav:hover .ic {transform:rotate(-135deg);background:rgba(245,245,246,0);}
+.top {width:100%;height:6vh;box-shadow:4px 4px 10px #ccc;position:absolute;bottom:0px;text-align:right;}
+.main {float:right;width:98%;height:94vh;background:rgba(0,0,0,0.1);}
+.alink {width:100%;height:40px;background:rgba(0,0,0,0.1);border:0px;border-radius:6px;}
+.alink:hover {background:rgba(245,245,246,0.2);}
+ul:hover {background:rgba(0,0,0,0.2);border-top:4px solid rgba(0,0,0,0.4)}
+
+.topbtn {width:20%;height:100%;border:0px;border-top:2px solid #ccc;background:#efefef;font-weight:bold;font-size:140%;}
+.topbtn:hover {background:#ccc;}
+</style>
+</head>
+<body>
+<div class="nav">
+<br>
+<div style="height:10vh;">
+<span class="ttl">Steak Web</span>
+</div>
+<br>
+<div class="artic" style="width:100%;top:3vh;position:relative;">
+<ul>
+<li>
+<button class="alink" onclick="Dby();"><img src="pic/load.png" class="ic"></img><span class="lispan">摸鱼大本营</span></button>
+</li>
+<li>
+<button class="alink" onclick="Alnk();"><img src="pic/sign.png" class="ic"></img><span class="lispan">超链接网站捷径</span></button>
+</li>
+<li>
+<button class="alink" onclick="Otherl();"><img src="pic/golden_pickaxe.png" class="ic"></img><span class="lispan">其他功能</span></button>
+</li>
+</ul>
+</div>
+<div class="artic" style="width:100%;top:9vh;position:relative;">
+<ul>
+<li>
+<button class="alink" onclick=""><img src="pic/barrier.png" class="ic"></img><span class="lispan">啥也没有</span></button>
+</li>
+<li>
+<button class="alink" onclick=""><img src="pic/barrier.png" class="ic"></img><span class="lispan">啥也没有</span></button>
+</li>
+<li>
+<button class="alink" onclick=""><img src="pic/barrier.png" class="ic"></img><span class="lispan">啥也没有</span></button>
+</li>
+</ul>
+</div>
+
+</div>
+<div class="main">
+<iframe style="width:100%;height:100%;border:0px;background:rgba(245,245,246,0.1);" id="ifm"></iframe>
+</div>
+<div class="top">
+<input class="topbtn" type="button" value="<" onclick="history.back();">
+<input class="topbtn" type="button" value=">" onclick="history.forward();">
+</div>
+</body>
+
+<script>
+var ifm = document.getElementById("ifm");
+function Dby(){
+ifm.src = "src/li1.html";
+}
+function Alnk(){
+ifm.src = "src/li2.html";
+}
+function Otherl(){
+ifm.src = "src/li3.html";
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
