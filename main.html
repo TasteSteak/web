@@ -26,6 +26,9 @@ ul:hover {background:rgba(0,0,0,0.2);border-top:4px solid rgba(0,0,0,0.4)}
 
 .topbtn {width:20%;height:100%;border:0px;border-top:2px solid #ccc;background:#efefef;font-weight:bold;font-size:140%;}
 .topbtn:hover {background:#ccc;}
+
+.ifm1 {width:100%;height:100%;border:0px;background:rgba(245,245,246,0.1);}
+.ifm2 {width:35%;height:100%;border:0px;background:rgba(245,245,246,0.1);position:relative;left:65%;}
 </style>
 </head>
 <body>
@@ -64,9 +67,10 @@ ul:hover {background:rgba(0,0,0,0.2);border-top:4px solid rgba(0,0,0,0.4)}
 
 </div>
 <div class="main">
-<iframe style="width:100%;height:100%;border:0px;background:rgba(245,245,246,0.1);" id="ifm"></iframe>
+<iframe class="ifm1" id="ifm"></iframe>
 </div>
 <div class="top">
+<input class="topbtn" type="button" value="R" onclick="rotated();">
 <input class="topbtn" type="button" value="<" onclick="history.back();">
 <input class="topbtn" type="button" value=">" onclick="history.forward();">
 </div>
@@ -74,6 +78,17 @@ ul:hover {background:rgba(0,0,0,0.2);border-top:4px solid rgba(0,0,0,0.4)}
 
 <script>
 var ifm = document.getElementById("ifm");
+var ct = 0;
+function rotated(){
+if(ct%2==0){
+ifm.className = "ifm2";
+}
+if(ct%2==1){
+ifm.className = "ifm1";
+}
+ct++;
+}
+
 function Dby(){
 ifm.src = "src/li1.html";
 }
