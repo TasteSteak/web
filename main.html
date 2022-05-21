@@ -1,53 +1,63 @@
 ﻿<html>
 <head>
-<title>主页</title>
+<title id="title">Steak Web</title>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=1" name="viewport">
-<meta name="description" content="Steak Web由牛排吖制作，是一个为上课摸鱼的同志们量身打造的起始页。Steak Web以最简洁的界面容纳了内置导航栏、超链接网站捷径、伪息屏等实用功能，让您的网上冲浪体验更加舒心(bushi)。">
+<meta name="description" content="">
 <link rel="shortcut icon" href="pic/icon.png">
 <link rel="apple-touch-icon" href="pic/icon.png">
 <style>
 * {margin:0px;padding:0px;}
-.nav {z-index:100;position:fixed;width:40px;height:100%;text-align:center;background:#212529;transition:all 0.4s;overflow:hidden;box-shadow:2px 2px 2px 2px 4px #000;}
+.nav {z-index:100;position:fixed;width:40px;height:100%;text-align:center;background:#212529;transition:all 0.4s;overflow:hidden;box-shadow:4px 4px 4px #000;}
 .nav:hover {width:20vw;height:100%;box-shadow:4px 4px 8px #000;}
 
-.nav>div>.ttl {font-size:0%;color:#fff;font-weight:120;border-bottom:1pt solid #fff;transition:all 0.2s ease;}
+.nav>div>.ttl {font-size:0%;color:#fff;font-weight:120;transition:all 0.2s ease;}
 .nav:hover>div>.ttl {font-size:160%;}
 .nav .lispan {line-height:5px;font-size:0px;transition:all 0.2s ease;color:#efefef;font-weight:350;}
 .nav:hover .lispan  {font-size:22px;}
 
-.nav .ic {vertical-align:middle;width:40px;background:rgba(245,245,246,0.1);transform-origin:50% 50%;border-radius:2px;transition:all 0.5s ease;}
+.nav .ic {vertical-align:middle;width:40px;background:rgba(245,245,246,0.05);transform-origin:50% 50%;border-radius:4px;transition:all 0.5s ease;}
 .nav:hover .ic {transform:rotate(-135deg);background:rgba(245,245,246,0);}
-.top {width:100%;height:6vh;box-shadow:4px 4px 10px #ccc;position:absolute;bottom:0px;text-align:right;}
-.main {float:right;width:97%;height:94vh;background:rgba(0,0,0,0.1);}
-.alink {width:100%;height:40px;background:rgba(0,0,0,0.1);border:0px;border-radius:6px;}
-.alink:hover {background:rgba(245,245,246,0.2);}
-ul:hover {background:rgba(0,0,0,0.2);border-top:4px solid rgba(0,0,0,0.4)}
+.top {width:100%;height:6vh;box-shadow:4px 4px 10px #ccc;position:absolute;bottom:0px;text-align:right;background:rgba(80,80,80,0.5);}
+.main {float:right;width:100%;height:94vh;background:rgb(245,245,246);}
+.alink {width:80%;height:40px;background:rgba(0,0,0,0.1);border:0px;border-radius:6px;}
+.alink:active {background:rgba(245,245,246,0.2);}
+ul:hover {background:rgba(0,0,0,0.05);border-left:4px solid rgba(0,0,0,0.2);border-right:4px solid rgba(0,0,0,0.2);}
 
-.topbtn {width:20%;height:100%;border:0px;border-top:2px solid #ccc;background:#efefef;font-weight:bold;font-size:140%;}
-.topbtn:hover {background:#ccc;}
+.topbtn {line-height:20px;position:relative;top:5%;width:15%;height:90%;border:0px;border-radius:4px;background:rgba(255,255,255,0.5);font-weight:bold;font-size:130%;}
+.topbtn:active {background:rgba(245,245,246,0.8);}
 
-.ifm1 {width:100%;height:100%;border:0px;background:rgba(245,245,246,0.1);}
-.ifm2 {width:35%;height:100%;border:0px;background:rgba(245,245,246,0.1);position:relative;left:65%;}
+.ifm1 {width:100%;height:100%;border:0px;background:rgb(243,243,244);}
+.ifm2 {width:35%;height:100%;border:0px;background:rgb(243,243,244);position:relative;left:65%;}
+.ifm3 {width:35%;height:100%;border:0px;background:rgb(243,243,244);position:relative;left:40px;}
+.ifm4 {width:35%;height:100%;border:0px;background:rgb(243,243,244);position:relative;left:32.5%;}
+.debugB1 {left:70%;}
+.debugB2 {left:5%;}
+
+.setbtn {width:25%;height:40px;background:#666;color:#efefef;font-weight:600;font-size:24px;border:0px;border-radius:4px;}
+.setbtn:active {background:rgb(150,150,150);}
+
+.debugbtn {width:25%;height:30px;background:rgba(0,0,0,0.2);color:#efefef;font-weight:light;font-size:14px;border:0px;border-radius:4px;}
+.debugbtn:active {background:rgba(0,0,0,0.3);}
 </style>
 </head>
-<body>
+<body style="width:100%;height:100%;">
 <div class="nav">
 <br>
-<div style="height:10vh;">
+<div style="height:12vh;">
 <span class="ttl">Steak Web</span>
 </div>
 <br>
 <div class="artic" style="width:100%;top:3vh;position:relative;">
 <ul>
 <li>
-<button class="alink" onclick="Dby();"><img src="pic/load.png" class="ic"></img><span class="lispan">摸鱼大本营</span></button>
+<button class="alink" onclick="Dby();"><img src="pic/load.png" class="ic"></img><span class="lispan">深水鱼塘</span></button>
 </li>
 <li>
-<button class="alink" onclick="Alnk();"><img src="pic/sign.png" class="ic"></img><span class="lispan">超链接网站捷径</span></button>
+<button class="alink" onclick="Alnk();"><img src="pic/sign.png" class="ic"></img><span class="lispan">导航页</span></button>
 </li>
 <li>
-<button class="alink" onclick="Otherl();"><img src="pic/golden_pickaxe.png" class="ic"></img><span class="lispan">其他功能</span></button>
+<button class="alink" onclick="Otherl();"><img src="pic/golden_pickaxe.png" class="ic"></img><span class="lispan">页面设置</span></button>
 </li>
 </ul>
 </div>
@@ -67,21 +77,125 @@ ul:hover {background:rgba(0,0,0,0.2);border-top:4px solid rgba(0,0,0,0.4)}
 
 </div>
 <div class="main">
-<iframe class="ifm1" id="ifm"></iframe>
+<iframe class="ifm1" id="ifm" src="src/li2.html" onload="urlGet();"></iframe>
+
+
 </div>
 <div class="top">
-<input class="topbtn" type="button" value="R" onclick="rotated();">
+<input class="topbtn" type="button" value="FBI" onclick="Shutd();">
+<input class="topbtn" type="button" value="窗口调整" onclick="rotated();">
 <input class="topbtn" type="button" value="<" onclick="history.back();">
 <input class="topbtn" type="button" value=">" onclick="history.forward();">
+</div>
+<div style="display:none;width:100%;height:100%;position:absolute;background:rgba(0,0,0,0.3);z-index:90;overflow:scroll;" class="setb">
+<div style="width:35%;height:80%;top:10%;left:32.5%;position:relative;border-radius:8px;background:rgb(245,245,246);box-shadow:4px 4px 10px #666;text-align:center;">
+<div style="position:relative;width:90%;height:90%;top:5%;left:5%;">
+<h1>页面设置</h1>
+<div style="width:100%;top:5%;position:relative;padding:10px;border-bottom:1pt solid #ccc;">
+<span>设置默认窗口位置</span>
+<p>
+<button class ="setbtn" onclick="localStorage.rotateType='left';">左边</button>
+<button class="setbtn" onclick="localStorage.rotateType='middle';">中间</button>
+<button class="setbtn" onclick="localStorage.rotateType='right';">右边</button>
+</div>
+<div style="width:100%;top:5%;position:relative;padding:10px;border-bottom:1pt solid #ccc;">
+<span>设置页面背景</span>
+<p>
+<button class ="setbtn" onclick="localStorage.bgColor='white';">米白</button>
+<button class="setbtn" onclick="localStorage.bgColor='white2';">亮灰</button>
+<button class="setbtn" onclick="localStorage.bgColor='black';">黑色</button>
+</div>
+<div style="width:100%;top:5%;position:relative;padding:10px;border-bottom:1pt solid #ccc;">
+<span>控制面板</span>
+<p>
+<button class ="setbtn" onclick="localStorage.deBug='open';">开启</button>
+<button class="setbtn" onclick="localStorage.deBug='close';">关闭</button>
+<p>
+<span style="font-size:80%;color:red;">注：控制面板可调试网页内部内容，可能会影响浏览.</span>
+</div>
+<div style="width:100%;position:relative;top:20%;">
+<button class="setbtn" style="width:35%;height:40px;border-radius:4px;" onclick="setTimeout('setSave();debugBox();',150);mainColor();">保存</button>
+</div>
+</div>
+</div>
+</div>
+
+<div style="position:fixed;width:100%;height:100%;background:#000;display:none;z-index:200;" class="shutdiv" ondblclick="unShut();">
+<div style="width:100%;top:90vh;position:relative;color:rgb(100,100,100);font-weight:550;text-align:center;">双击以关闭</div>
+</div>
+
+<div style="display:none;width:25%;height:50%;top:25%;position:absolute;background:rgb(245,245,246);border-radius:4px;box-shadow:4px 4px 10px #ccc;overflow:scroll;" id="debugB" class="debugB1">
+<div style="width:90%;top:5%;left:5%;position:relative;background:rgba(0,0,0,0.1);border-radius:4px;text-align:center;">
+<span style="font-size:110%;">视频控制</span>
+<p>
+<button class ="debugbtn" onclick="movPlay();">播放</button>
+<button class="debugbtn" onclick="movPause();">暂停</button>
+<button class="debugbtn" onclick="movRate();">x16</button>
+<br>
+</div>
+<div style="width:90%;top:8%;left:5%;position:relative;background:rgba(0,0,0,0.1);border-radius:4px;text-align:center;">
+<span style="font-size:110%;">当前页面url</span>
+<br>
+<input type="text" style="background:rgb(245,245,246);width:90%;height:30px;font-size:24px;border-bottom:1pt solid #000;border-radius:4px;" value="" id="urlText">
+<br>
+</div>
+
 </div>
 </body>
 
 <script>
 var ifm = document.getElementById("ifm");
+var debugB = document.getElementById("debugB");
+
+window.onload = function(){
+var cw = window.innerWidth;
+document.querySelector(".main").style.width = cw - 40 +"px";
+
+setTimeout("mainColor();",0);
+setTimeout("debugBox();",0);
+}
+window.onresize = function(){
+var cw = window.innerWidth;
+document.querySelector(".main").style.width = cw - 40 +"px";
+}
+
+function Shutd(){
+document.querySelector(".shutdiv").style.display = "block";
+document.title = ".";
+}
+function unShut(){
+document.querySelector(".shutdiv").style.display = "none";
+document.title = "Steak Web";
+}
+
+function mainColor(){
+if(localStorage.bgColor==undefined || localStorage.bgColor=="white"){
+document.querySelector(".main").style.background = "rgb(245,245,246)";
+}
+if(localStorage.bgColor=="white2"){
+document.querySelector(".main").style.background = "#efefef";
+}
+if(localStorage.bgColor=="black"){
+document.querySelector(".main").style.background = "#161B22";
+}
+}
+
+
 var ct = 0;
 function rotated(){
 if(ct%2==0){
+if(localStorage.rotateType=="left"){
+ifm.className = "ifm3";
+debugB.className = "debugB1";
+}
+if(localStorage.rotateType=="middle"){
+ifm.className = "ifm4";
+debugB.className = "debugB1";
+}
+else{
 ifm.className = "ifm2";
+debugB.className = "debugB2";
+}
 }
 if(ct%2==1){
 ifm.className = "ifm1";
@@ -96,19 +210,49 @@ function Alnk(){
 ifm.src = "src/li2.html";
 }
 function Otherl(){
-ifm.src = "src/li3.html";
+var x = document.querySelector(".setb");
+x.style.display = "block";
 }
 
+function setSave(){
+var x = document.querySelector(".setb");
+x.style.display = "none";
+}
 
 function Lst1(){
 ifm.src = "https://tools-wiki.biligame.com/ys/simulator/dist/wish";
 }
+
+
+function debugBox(){
+if(localStorage.deBug=="open"){
+debugB.style.display = "block";
+}
+else{
+debugB.style.display = "none";
+}
+}
+
+function movPlay(){
+var ifmWin=(ifm.contentWindow || ifm.contentDocument);
+if (ifmWin.document)ifmWin=ifmWin.document;
+ifmWin.querySelector('video').play();
+}
+function movPause(){
+var ifmWin=(ifm.contentWindow || ifm.contentDocument);
+if (ifmWin.document)ifmWin=ifmWin.document;
+ifmWin.querySelector('video').pause();
+}
+function movRate(){
+var ifmWin=(ifm.contentWindow || ifm.contentDocument);
+if (ifmWin.document)ifmWin=ifmWin.document;
+ifmWin.querySelector('video').playbackRate=16;
+}
+function urlGet(){
+var ifmWin=(ifm.contentWindow || ifm.contentDocument);
+document.querySelector('#urlText').value = ifmWin.location.href;
+}
 </script>
-
-
-
-
-
 
 
 
