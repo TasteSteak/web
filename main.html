@@ -105,14 +105,6 @@ ul:hover {background:rgba(0,0,0,0.05);border-left:4px solid rgba(0,0,0,0.2);bord
 <button class="setbtn" onclick="localStorage.bgColor='white2';">亮灰</button>
 <button class="setbtn" onclick="localStorage.bgColor='black';">黑色</button>
 </div>
-<div style="width:100%;top:5%;position:relative;padding:10px;border-bottom:1pt solid #ccc;">
-<span>控制面板</span>
-<p>
-<button class ="setbtn" onclick="localStorage.deBug='open';">开启</button>
-<button class="setbtn" onclick="localStorage.deBug='close';">关闭</button>
-<p>
-<span style="font-size:80%;color:red;">注：控制面板可调试网页内部内容，可能会影响浏览.</span>
-</div>
 <div style="width:100%;position:relative;top:20%;">
 <button class="setbtn" style="width:35%;height:40px;border-radius:4px;" onclick="setTimeout('setSave();debugBox();',150);mainColor();">保存</button>
 </div>
@@ -253,7 +245,6 @@ var ifmWin=(ifm.contentWindow || ifm.contentDocument);
 document.querySelector('#urlText').value = ifmWin.location.href;
 }
 </script>
-
 
 
 
