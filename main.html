@@ -143,6 +143,10 @@ window.location.search="?dd_nav_bgcolor=ff000000"
 if(localStorage.updateN < 1 || localStorage.updateN ==undefined){
 document.querySelector(".updateShut").style.display="block";
 }
+
+dd.ready(function() {
+dd.biz.navigation.setTitle({
+title:"."});})
 </script>
 <script>
 function updateN(){
@@ -227,5 +231,4 @@ function Lst2(){
 ifm.src = "src/wisdomclass.html";
 }
 
-setTimeout('document.title = ".";',1000);
 </script>
