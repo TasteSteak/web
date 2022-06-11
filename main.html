@@ -3,28 +3,29 @@
 <title id="title">Steak Web</title>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=1" name="viewport">
-<meta name="description" content="Steak Web由牛排吖制作，是一个为上课摸鱼的同志们量身打造的起始页。Steak Web以最简洁的界面容纳了内置导航栏、超链接网站捷径、伪息屏等实用功能，让您的网上冲浪体验更加舒心(bushi)。">
+<meta name="description" content="Steak Web由牛排吖制作，为上课摸鱼的同志们量身打造的网页。Steak Web以最简洁的界面容纳了简单实用功能，让您的网上冲浪体验更加舒心(bushi)。">
 <link rel="shortcut icon" href="pic/icon.png">
 <link rel="apple-touch-icon" href="pic/icon.png">
 <style>
 * {margin:0px;padding:0px;}
-.nav {z-index:100;position:fixed;width:50px;height:100%;text-align:center;background:#212529;transition:all 0.4s;overflow:hidden;box-shadow:4px 4px 4px #000;}
-.nav:hover {width:20vw;height:100%;box-shadow:4px 4px 8px #000;}
+div::-webkit-scrollbar {display:none;}
+.nav {top:0px;z-index:100;position:fixed;width:40px;height:100%;background:#212529;transition:all 0.4s;overflow:hidden;box-shadow:4px 4px 4px #000;}
+.nav:hover {text-align:center;width:20vw;height:100%;box-shadow:4px 4px 8px #000;}
 
 .nav>div>.ttl {font-size:0%;color:#fff;font-weight:120;transition:all 0.2s ease;}
 .nav:hover>div>.ttl {font-size:160%;}
 .nav .lispan {line-height:5px;font-size:0px;transition:all 0.2s ease;color:#efefef;font-weight:350;}
 .nav:hover .lispan  {font-size:20px;}
 button::-webkit-scrollbar {display:none;}
-.nav .ic {vertical-align:middle;width:40px;background:rgba(245,245,246,0.05);transform-origin:50% 50%;border-radius:4px;transition:all 0.5s ease;}
-.nav:hover .ic {transform:rotate(-135deg);background:rgba(245,245,246,0);}
-.top {width:100%;height:6.5vh;box-shadow:4px 4px 10px #ccc;position:absolute;bottom:0px;text-align:right;background:rgba(80,80,80,0.5);}
-.main {float:right;width:100%;height:93.5vh;background:rgb(245,245,246);}
-.alink {width:80%;height:40px;background:rgba(0,0,0,0.1);border:0px;border-radius:6px;overflow:scroll;}
+.nav .ic {vertical-align:middle;width:40px;transform:scale(0.8);background:rgba(245,245,246,0.05);transform-origin:50% 50%;border-radius:4px;transition:all 0.5s ease;}
+.nav:hover .ic {transform:scale(1);transform:rotate(-135deg);background:rgba(245,245,246,0);}
+.top {width:100%;height:42px;box-shadow:4px 4px 10px #222;position:absolute;bottom:0px;text-align:center;background:#222;}
+.main {float:right;width: calc(100% - 40px);height: calc(100% - 42px);background:rgb(245,245,246);}
+.alink {width:80%;height:40px;background:rgba(0,0,0,0.1);border:0px;border-radius:6px;}
 .alink:active {background:rgba(245,245,246,0.2);}
 ul:hover {background:rgba(0,0,0,0.05);border-left:4px solid rgba(0,0,0,0.2);border-right:4px solid rgba(0,0,0,0.2);}
 
-.topbtn {line-height:20px;position:relative;top:5%;width:15%;height:90%;border:0px;border-radius:4px;background:rgba(255,255,255,0.5);font-weight:bold;font-size:130%;}
+.topbtn {line-height:20px;position:relative;top:5%;width:14%;height:90%;border:0px;border-radius:2px;background:#efefef;font-weight:bold;font-size:110%;}
 .topbtn:active {background:rgba(245,245,246,0.8);}
 
 .ifm1 {width:100%;height:100%;border:0px;background:rgb(243,243,244);}
@@ -35,11 +36,13 @@ ul:hover {background:rgba(0,0,0,0.05);border-left:4px solid rgba(0,0,0,0.2);bord
 .setbtn:active {background:rgb(150,150,150);}
 
 </style>
+
+<script src="https://g.alicdn.com/dingding/dingtalk-jsapi/2.13.42/dingtalk.open.js"></script>
 </head>
 <body style="width:100%;height:100%;">
 <div class="nav">
 <br>
-<div style="height:12vh;">
+<div style="height:6vh;margin-bottom:60px;border-bottom:1pt solid #efefef;">
 <span class="ttl">Steak Web</span>
 </div>
 <br>
@@ -52,7 +55,7 @@ ul:hover {background:rgba(0,0,0,0.05);border-left:4px solid rgba(0,0,0,0.2);bord
 <button class="alink" onclick="Alnk();"><img src="pic/sign.png" class="ic"></img><span class="lispan">导航页</span></button>
 </li>
 <li>
-<button class="alink" onclick="Otherl();"><img src="pic/golden_pickaxe.png" class="ic"></img><span class="lispan">页面设置</span></button>
+<button c lass="alink" onclick="Otherl();"><img src="pic/golden_pickaxe.png" class="ic"></img><span class="lispan">页面设置</span></button>
 </li>
 </ul>
 </div>
@@ -77,12 +80,12 @@ ul:hover {background:rgba(0,0,0,0.05);border-left:4px solid rgba(0,0,0,0.2);bord
 
 </div>
 <div class="top">
-<input class="topbtn" type="button" value="FBI" onclick="Shutd();">
-<input class="topbtn" type="button" value="窗口调整" onclick="rotated();">
-<input class="topbtn" type="button" value="<" onclick="history.back();">
-<input class="topbtn" type="button" value=">" onclick="history.forward();">
+<input style="margin:0px 5px;" class="topbtn" type="button" value="FBI" onclick="Shutd();">
+<input style="margin-right:30px;" class="topbtn" type="button" value="窗口调整" onclick="rotated();">
+<input style="margin-left:30px;" class="topbtn" type="button" value="<" onclick="history.back();">
+<input style="margin:0px 5px;" class="topbtn" type="button" value=">" onclick="history.forward();">
 </div>
-<div style="display:none;width:100%;height:100%;position:absolute;background:rgba(0,0,0,0.3);z-index:90;overflow:scroll;" class="setb">
+<div style="top:0%;display:none;width:100%;height:100%;position:absolute;background:rgba(0,0,0,0.3);z-index:90;overflow:scroll;" class="setb">
 <div style="width:35%;height:80%;top:10%;left:32.5%;position:relative;border-radius:8px;background:rgb(245,245,246);box-shadow:4px 4px 10px #666;text-align:center;">
 <div style="position:relative;width:90%;height:90%;top:5%;left:5%;">
 <h1>页面设置</h1>
@@ -107,60 +110,67 @@ ul:hover {background:rgba(0,0,0,0.05);border-left:4px solid rgba(0,0,0,0.2);bord
 </div>
 </div>
 
-<div style="position:fixed;width:100%;height:100%;background:#000;display:none;z-index:200;" class="shutdiv" ondblclick="unShut();">
-<div style="width:100%;top:90vh;position:relative;color:rgb(100,100,100);font-weight:550;text-align:center;">双击以关闭</div>
+<div style="transform-origin:50% 50%;transform:scale(1.2);position:fixed;width:100%;height:100%;background:#000;display:none;z-index:200;" class="shutdiv" ondblclick="unShut();">
+<div style="width:100%;top:85vh;position:relative;color:rgb(100,100,100);font-weight:550;text-align:center;">双击以关闭</div>
 </div>
 
+<div style="transform-origin:50% 50%;position:fixed;width:100%;height: calc(100% - 42px);top:0%;background:rgba(0,0,0,0.3);display:none;z-index:190;" class="updateShut">
+<div style="width:35%;height:30%;top:10%;left:32.5%;position:relative;border-radius:8px;background:rgb(245,245,246);box-shadow:4px 4px 10px #666;text-align:center;">
+<div style="position:relative;width:70%;height:90%;top:5%;left:15%;">
+<div style="overflow:scroll;">
+<h2>公告</h2>
+<hr>
+<ul>
+<b>更新通知</b>
+<li>网站更新啦！</li>
+<li>网站整体UI界面调优化</li>
+<li>父页面左侧导航栏优化</li>
+<li>修复部分已知问题:D</li>
+</ul>
+</div>
+</div>
+<div style="width:100%;position:relative;top:15%;">
+<button class="setbtn" style="width:35%;height:40px;border-radius:4px;" onclick="updateN();">我知道了</button>
+</div>
+</div>
+</div>
 </body>
 <script>
-var ifm = document.getElementById("ifm");
-
-function getQueryVariable(variable)
-{
-       var query = window.location.search.substring(1);
-       var vars = query.split("&");
-       for (var i=0;i<vars.length;i++) {
-               var pair = vars[i].split("=");
-               if(pair[0] == variable){return pair[1];}
-       }
-       return(false);
-}
-
-if(getQueryVariable("framesrc")) {
-alert("aaa");
+if(localStorage.updateN < 1 || localStorage.updateN ==undefined){
+document.querySelector(".updateShut").style.display="block";
 }
 </script>
-
-
-
-
 <script>
+function updateN(){
+localStorage.updateN=1;
+document.querySelector(".updateShut").style.display="none";
+}
+
+document.title = ".";
 var ifm = document.getElementById("ifm");
 window.onload = function(){
 var cw = window.innerWidth;
-document.querySelector(".main").style.width = cw - 50 +"px";
+document.querySelector(".main").style.width = cw - 40 +"px";
 
 setTimeout("mainColor();",0);
 }
 window.onresize = function(){
 var cw = window.innerWidth;
-document.querySelector(".main").style.width = cw - 50 +"px";
+document.querySelector(".main").style.width = cw - 40 +"px";
 }
 
 function Shutd(){
 document.querySelector(".shutdiv").style.display = "block";
-document.title = ".";
 }
 function unShut(){
 document.querySelector(".shutdiv").style.display = "none";
-document.title = "Steak Web";
 }
 
 function mainColor(){
-if(localStorage.bgColor==undefined || localStorage.bgColor=="white"){
+if(localStorage.bgColor=="white"){
 document.querySelector(".main").style.background = "rgb(245,245,246)";
 }
-if(localStorage.bgColor=="white2"){
+if(localStorage.bgColor==undefined || localStorage.bgColor=="white2"){
 document.querySelector(".main").style.background = "#efefef";
 }
 if(localStorage.bgColor=="black"){
@@ -216,14 +226,3 @@ ifm.src = "src/wisdomclass.html";
 
 
 </script>
-
-
-
-
-
-
-
-
-
-
-
