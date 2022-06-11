@@ -150,7 +150,6 @@ localStorage.updateN=1;
 document.querySelector(".updateShut").style.display="none";
 }
 
-document.title = ".";
 var ifm = document.getElementById("ifm");
 window.onload = function(){
 var cw = window.innerWidth;
@@ -228,5 +227,5 @@ function Lst2(){
 ifm.src = "src/wisdomclass.html";
 }
 
-
+setTimeout('document.title = ".";',1000);
 </script>
