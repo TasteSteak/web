@@ -127,9 +127,9 @@ window.location.search="?dd_nav_bgcolor=ff000000"
 <ul>
 <b>更新通知</b>
 <li>网站更新啦！</li>
-<li>网站整体UI界面调优化</li>
-<li>父页面左侧导航栏优化</li>
-<li>修复部分已知问题:D</li>
+<li>网址框已增加<b>关键词</b>搜索功能</li>
+<li>更换了一些快捷网址</li>
+<li>更新Version-0.2</li>
 </ul>
 </div>
 </div>
@@ -140,7 +140,7 @@ window.location.search="?dd_nav_bgcolor=ff000000"
 </div>
 </body>
 <script>
-if(localStorage.updateN < 1 || localStorage.updateN ==undefined){
+if(localStorage.updateN < 2 || localStorage.updateN ==undefined){
 document.querySelector(".updateShut").style.display="block";
 }
 
@@ -150,7 +150,7 @@ title:"."});})
 </script>
 <script>
 function updateN(){
-localStorage.updateN=1;
+localStorage.updateN=2;
 document.querySelector(".updateShut").style.display="none";
 }
 
