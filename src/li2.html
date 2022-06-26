@@ -21,9 +21,9 @@ div::-webkit-scrollbar {display:none;}
 <div>
 <span style="color:#fff;font-size:300%;font-weight:350;" id="timeS">:</span>
 <p>
-<input type="url" class="url" placeholder="请输入完整的网址以访问" onBlur="urlTo(this.value);">
+<input type="url" class="url" placeholder="请输入完整的网址或关键词" onBlur="urlTo(this.value);">
 <br>
-<span style="color:rgb(245,245,246);font-size:110%;">例如： http://steak.example.com</span>
+<span style="color:rgb(245,245,246);font-size:110%;">例如： http://steak.example.com  或  「我是关键词」</span>
 </div>
 
 
@@ -54,9 +54,9 @@ div::-webkit-scrollbar {display:none;}
 </div>
 
 <div>
-<div class="box" onclick="location.href='https://www.acfun.cn/';">
-<img src="https://cdn.aixifan.com/ico/favicon.ico">
-</div>AcFun
+<div class="box" onclick="location.href='https://weibo.com';">
+<img src="https://weibo.com/favicon.ico">
+</div>微博
 </div>
 
 <div>
@@ -67,7 +67,7 @@ div::-webkit-scrollbar {display:none;}
 
 <div>
 <div class="box" onclick="location.href='https://eacg.net';">
-<img src="https://k8dm.com/template/vfed/asset/img/favicon.png">
+<img src="https://i.loli.net/2019/12/09/17hvXK2LemTtgfs.png">
 </div>E - ACG
 </div>
 
@@ -130,8 +130,16 @@ mins = (mins>=10)?mins:"0"+mins;
 timeS.innerText = hours + ":" + mins;
 setTimeout("timeTop();",1000);
 }
+
 function urlTo(x){
-location.href = x;
+var RegUrl = new RegExp();
+RegUrl.compile("^[a-zA-Z0-9]+://([a-zA-Z0-9_.-]+/?)*([a-zA-Z0-9?&%=._-]+)*");
+if(x!==""){
+if(!RegUrl.test(x)) {
+location.href="http://baidu.com/s?wd="+escape(x)+"&t_kt=0&ie=UTF-8"}
+else{
+location.href=x}
+}
 }
 </script>
 </html>
