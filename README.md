@@ -1,1 +1,1 @@
-This is a useless website
+It just a website
