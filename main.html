@@ -2,7 +2,8 @@
 <head>
 <title id="title">Steak Web</title>
 <meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=1" name="viewport">
+<meta id="viewportid" content="width=device-width" name="viewport">
+<meta content="initial-scale=1.0, maximum-scale=3.0, user-scalable=1" name="viewport">
 <meta name="description" content="Steak Web由牛排吖制作，为上课摸鱼的同志们量身打造的网页。Steak Web以最简洁的界面容纳了简单实用功能，让您的网上冲浪体验更加舒心(bushi)。">
 <link rel="shortcut icon" href="pic/icon.png">
 <link rel="apple-touch-icon" href="pic/icon.png">
@@ -107,6 +108,13 @@ window.location.search="?dd_nav_bgcolor=ff000000"
 <button class="setbtn" onclick="localStorage.bgColor='white2';">亮灰</button>
 <button class="setbtn" onclick="localStorage.bgColor='black';">黑色</button>
 </div>
+<div style="width:95%;top:5%;position:relative;padding:10px;border-bottom:1pt solid #ccc;">
+<span>设置网页当前分辨率</span>
+<p>
+<button class ="setbtn" onclick="localStorage.WebPixel='640px';ChangeWebP();">640P</button>
+<button class="setbtn" onclick="localStorage.WebPixel='720px';ChangeWebP();">720P</button>
+<button class="setbtn" onclick="localStorage.WebPixel='1080px';ChangeWebP();">1080P</button>
+</div>
 <div style="width:100%;position:relative;top:20%;">
 <button class="setbtn" style="width:35%;height:40px;border-radius:4px;" onclick="setTimeout('setSave();',10);mainColor();">保存</button>
 </div>
@@ -127,9 +135,9 @@ window.location.search="?dd_nav_bgcolor=ff000000"
 <ul>
 <b>更新通知</b>
 <li>网站更新啦！</li>
-<li>网址框已增加<b>关键词</b>搜索功能</li>
-<li>更换了一些快捷网址</li>
-<li>更新Version-0.2</li>
+<li>位于导航页<b>搜索关键词</b>搜索功能异常问题修复</li>
+<li>现可调整网页<b>显示分辨率</b>，可前往<b>页面设置</b>处查看</li>
+<li>更新Version-0.3</li>
 </ul>
 </div>
 </div>
@@ -140,7 +148,7 @@ window.location.search="?dd_nav_bgcolor=ff000000"
 </div>
 </body>
 <script>
-if(localStorage.updateN < 2 || localStorage.updateN ==undefined){
+if(localStorage.updateN < 3 || localStorage.updateN ==undefined){
 document.querySelector(".updateShut").style.display="block";
 }
 
@@ -150,7 +158,7 @@ title:"."});})
 </script>
 <script>
 function updateN(){
-localStorage.updateN=2;
+localStorage.updateN=3;
 document.querySelector(".updateShut").style.display="none";
 }
 
@@ -159,11 +167,15 @@ window.onload = function(){
 var cw = window.innerWidth;
 document.querySelector(".main").style.width = cw - 40 +"px";
 
-setTimeout("mainColor();",0);
+setTimeout("mainColor();ChangeWebP();",0);
 }
 window.onresize = function(){
 var cw = window.innerWidth;
 document.querySelector(".main").style.width = cw - 40 +"px";
+}
+
+function ChangeWebP(){
+document.querySelector("#viewportid").setAttribute("content","width="+localStorage.WebPixel)
 }
 
 function Shutd(){
