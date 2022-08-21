@@ -3,7 +3,7 @@
 <title id="title">Steak Web</title>
 <meta charset="utf-8">
 <meta id="viewportid" content="width=device-width" name="viewport">
-<meta content="initial-scale=1.0, maximum-scale=3.0, user-scalable=1" name="viewport">
+<meta content="target-densitydpi=device-dpi,initial-scale=1.0, maximum-scale=3.0, user-scalable=1" name="viewport">
 <meta name="description" content="Steak Web由牛排吖制作，为上课摸鱼的同志们量身打造的网页。Steak Web以最简洁的界面容纳了简单实用功能，让您的网上冲浪体验更加舒心(bushi)。">
 <link rel="shortcut icon" href="pic/icon.png">
 <link rel="apple-touch-icon" href="pic/icon.png">
@@ -41,6 +41,18 @@ ul:hover {background:rgba(0,0,0,0.05);border-left:4px solid rgba(0,0,0,0.2);bord
 if(window.location.search!=="?dd_nav_bgcolor=ff000000"){
 window.location.search="?dd_nav_bgcolor=ff000000"
 }
+
+
+var lastTouchEnd = 0;
+document.documentElement.addEventListener('touchend', function (event) {
+    var now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+    }
+    lastTouchEnd = now;
+}, {
+    passive: false
+});
 </script>
 <script src="https://g.alicdn.com/dingding/dingtalk-jsapi/2.13.42/dingtalk.open.js"></script>
 </head>
@@ -111,13 +123,13 @@ window.location.search="?dd_nav_bgcolor=ff000000"
 <div style="width:95%;top:5%;position:relative;padding:10px;border-bottom:1pt solid #ccc;">
 <span>设置网页当前分辨率</span>
 <p>
-<button class ="setbtn" onclick="localStorage.WebPixel='640px';ChangeWebP();">640P</button>
+<button class="setbtn" onclick="localStorage.WebPixel='device-width';ChangeWebP();">自动</button>
 <button class="setbtn" onclick="localStorage.WebPixel='720px';ChangeWebP();">720P</button>
 <button class="setbtn" onclick="localStorage.WebPixel='860px';ChangeWebP();">860P</button>
 <p>
+<button class ="setbtn" onclick="localStorage.WebPixel='900px';ChangeWebP();">900P</button>
 <button class="setbtn" onclick="localStorage.WebPixel='1080px';ChangeWebP();">1080P</button>
 <button class ="setbtn" onclick="localStorage.WebPixel='1440px';ChangeWebP();">2K</button>
-<button class="setbtn" onclick="localStorage.WebPixel='device-width';ChangeWebP();">自动</button>
 </div>
 <div style="width:100%;position:relative;top:20%;">
 <button class="setbtn" style="width:35%;height:40px;border-radius:4px;" onclick="setTimeout('setSave();',10);mainColor();">保存</button>
