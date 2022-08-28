@@ -8,7 +8,8 @@
 <link rel="shortcut icon" href="pic/icon.png">
 <link rel="apple-touch-icon" href="pic/icon.png">
 <style>
-* {margin:0px;padding:0px;}
+* {margin:0px;padding:0px;outline:none;}
+img {vertical-align:middle;}
 div::-webkit-scrollbar {display:none;}
 .nav {top:0px;z-index:100;position:fixed;width:40px;height:100%;background:#212529;transition:all 0.4s;overflow:hidden;box-shadow:4px 4px 4px #000;}
 .nav:hover {text-align:center;width:20vw;height:100%;box-shadow:4px 4px 8px #000;}
@@ -41,18 +42,6 @@ ul:hover {background:rgba(0,0,0,0.05);border-left:4px solid rgba(0,0,0,0.2);bord
 if(window.location.search!=="?dd_nav_bgcolor=ff000000"){
 window.location.search="?dd_nav_bgcolor=ff000000"
 }
-
-
-var lastTouchEnd = 0;
-document.documentElement.addEventListener('touchend', function (event) {
-    var now = Date.now();
-    if (now - lastTouchEnd <= 300) {
-        event.preventDefault();
-    }
-    lastTouchEnd = now;
-}, {
-    passive: false
-});
 </script>
 <script src="https://g.alicdn.com/dingding/dingtalk-jsapi/2.13.42/dingtalk.open.js"></script>
 </head>
@@ -85,7 +74,7 @@ document.documentElement.addEventListener('touchend', function (event) {
 <button class="alink" onclick="Lst2();"><img src="pic/wisdomclass-icon.png" class="ic"></img><span class="lispan">智慧课堂</span></button>
 </li>
 <li>
-<button class="alink" onclick=""><img src="pic/barrier.png" class="ic"></img><span class="lispan">啥也没有</span></button>
+<button class="alink" onclick="window.open('src/Lck.html')"><img src="pic/barrier.png" class="ic"></img><span class="lispan">脚本锁</span></button>
 </li>
 </ul>
 </div>
@@ -103,9 +92,10 @@ document.documentElement.addEventListener('touchend', function (event) {
 <input style="margin:0px 5px;" class="topbtn" type="button" value=">" onclick="history.forward();">
 </div>
 <div style="top:0%;display:none;width:100%;height:100%;position:absolute;background:rgba(0,0,0,0.3);z-index:90;overflow:scroll;" class="setb">
-<div style="width:35%;height:80%;top:10%;left:32.5%;position:relative;border-radius:8px;background:rgb(245,245,246);box-shadow:4px 4px 10px #666;text-align:center;">
+<div style="width:55%;height:80%;top:10%;left:22.5%;position:relative;border-radius:8px;background:rgb(245,245,246);box-shadow:4px 4px 10px #666;text-align:center;">
 <div style="position:relative;width:90%;height:90%;top:5%;left:5%;">
 <h1>页面设置</h1>
+<div style="width:100%;height:60%;overflow:scroll;">
 <div style="width:95%;top:5%;position:relative;padding:10px;border-bottom:1pt solid #ccc;">
 <span>设置默认窗口位置</span>
 <p>
@@ -131,6 +121,7 @@ document.documentElement.addEventListener('touchend', function (event) {
 <button class="setbtn" onclick="localStorage.WebPixel='1080px';ChangeWebP();">1080P</button>
 <button class ="setbtn" onclick="localStorage.WebPixel='1440px';ChangeWebP();">2K</button>
 </div>
+</div>
 <div style="width:100%;position:relative;top:20%;">
 <button class="setbtn" style="width:35%;height:40px;border-radius:4px;" onclick="setTimeout('setSave();',10);mainColor();">保存</button>
 </div>
@@ -138,23 +129,21 @@ document.documentElement.addEventListener('touchend', function (event) {
 </div>
 </div>
 
-<div style="top:0%;position:fixed;width:100%;height:100%;background:#000;display:none;z-index:200;" class="shutdiv" ondblclick="unShut();">
-<div style="width:100%;top:85vh;position:relative;color:rgb(100,100,100);font-weight:550;text-align:center;">双击以关闭</div>
+<div style="top:0%;position:fixed;width:100%;height:100%;background:#000;display:none;z-index:200;" class="shutdiv">
+<div style="width:100%;top:85vh;position:relative;color:rgb(30,30,30);font-size:80%;font-weight:250;text-align:center;" ontouchmove="unShut();">滑动以关闭</div>
 </div>
 
 <div style="transform-origin:50% 50%;position:fixed;width:100%;height: calc(100% - 42px);top:0%;background:rgba(0,0,0,0.3);display:none;z-index:190;" class="updateShut">
-<div style="width:35%;height:30%;top:10%;left:32.5%;position:relative;border-radius:8px;background:rgb(245,245,246);box-shadow:4px 4px 10px #666;text-align:center;">
+<div style="width:60%;height:60%;top:20%;left:20%;position:relative;border-radius:8px;background:rgb(245,245,246);box-shadow:4px 4px 10px #666;text-align:center;">
 <div style="position:relative;width:70%;height:90%;top:5%;left:15%;">
 <div style="overflow:scroll;">
-<h2>公告</h2>
+<h2><img src="pic/load.png" style="width:30px;height:30px;"></img>更新内容</h2>
 <hr>
-<ul>
-<b>更新通知</b>
-<li>网站更新啦！</li>
-<li>位于导航页<b>搜索关键词</b>搜索功能异常问题修复</li>
-<li>现可调整网页<b>显示分辨率</b>，可前往<b>页面设置</b>处查看</li>
-<li>更新Version-0.3</li>
-</ul>
+<b>Version-0.5</b>
+<br>对于<kbd>FBI</kbd>的触发逻辑进行修改
+<br>位于导航页<img src="pic/barrier.png" style="width:20px;height:20px;"></img><b>脚本锁</b>的功能已经上线(初代),<i>仅适用于正规浏览器</i>
+<br>已修复屏幕分辨率过大时<kbd>FBI</kbd>使用出现的问题
+<br>已添加新的搜索引擎(原本为百度)，点击搜索框左边的图标以切换搜索引擎
 </div>
 </div>
 <div style="width:100%;position:relative;top:15%;">
@@ -164,7 +153,7 @@ document.documentElement.addEventListener('touchend', function (event) {
 </div>
 </body>
 <script>
-if(localStorage.updateN < 3 || localStorage.updateN ==undefined){
+if(localStorage.updateN < 4 || localStorage.updateN ==undefined){
 document.querySelector(".updateShut").style.display="block";
 }
 
@@ -174,7 +163,7 @@ title:"."});})
 </script>
 <script>
 function updateN(){
-localStorage.updateN=3;
+localStorage.updateN=4;
 document.querySelector(".updateShut").style.display="none";
 }
 
