@@ -21,6 +21,7 @@ div::-webkit-scrollbar {display:none;}
 <div>
 <span style="color:#fff;font-size:300%;font-weight:350;" id="timeS">:</span>
 <p>
+<img src="http://www.baidu.com/img/baidu_85beaf5496f291521eb75ba38eacbd87.svg" style="width:40px;height:40px;vertical-align:middle;" onclick="ChangeYQ();" id="YQImg"></img>
 <input type="url" class="url" placeholder="请输入完整的网址或关键词" onBlur="urlTo(this.value);">
 <br>
 <span style="color:rgb(245,245,246);font-size:110%;">例如： http://steak.example.com  或  「我是关键词」</span>
@@ -132,7 +133,20 @@ timeS.innerText = hours + ":" + mins;
 setTimeout("timeTop();",1000);
 }
 
+var YQType =0;
+function ChangeYQ(){
+if(YQType==0){
+YQType = 1;
+document.querySelector("#YQImg").src = "https://www.bilibili.com/favicon.ico?v=1";
+}
+else{
+YQType = 0;
+document.querySelector("#YQImg").src = "http://www.baidu.com/img/baidu_85beaf5496f291521eb75ba38eacbd87.svg";
+}
+}
+
 function urlTo(x){
+    if(YQType==0){
 var RegUrl = new RegExp();
 RegUrl.compile("^[a-zA-Z0-9]+://([a-zA-Z0-9_.-]+/?)*([a-zA-Z0-9?&%=._-]+)*");
 if(x!==""){
@@ -140,6 +154,12 @@ if(!RegUrl.test(x)) {
 location.href="http://baidu.com/s?wd="+encodeURI(x)+"&t_kt=0&ie=UTF-8"}
 else{
 location.href=x}
+}
+}
+
+else{
+    location.href="https://m.bilibili.com/search?keyword="+ x;
+    
 }
 }
 </script>

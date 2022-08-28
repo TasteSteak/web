@@ -1,0 +1,25 @@
+<body style="background:#000;">
+<script>
+    var lck=0;
+    if(lck==0){
+    window.onbeforeunload = LckP();}
+
+    function LckP(){
+if(localStorage.LckP==undefined){
+    var mms = prompt("New Password")
+    var mms2 = prompt("confrim ur Password")
+    if(mms2 == mms && mms!=null){
+        localStorage.LckP = mms;
+        lck=1;
+        LckP();
+    }
+    else{LckP();}
+}
+else{
+    var mmq = prompt("")
+    if(mmq == localStorage.LckP){alert("Unlocked");lck=1;return;}
+    if(mmq == "Reset1946"){localStorage.removeItem("LckP");alert("Reset");lck=1;return;}
+    else{lck=0;alert("Error");LckP();}
+}
+    }
+</script>
