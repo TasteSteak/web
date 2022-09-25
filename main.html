@@ -42,13 +42,13 @@
 <iframe src="" id="ifmMain" class="ifm"></iframe>
 <div id="ctrlBox">
     <div id="cBox1">
-        <button onclick="ZXH(this);"><img>最小化</button><button onclick="cBox1F(1);"><img>菜单</button><button onclick="Alert('Mine');"><img>新消息</button>
+        <button onclick="ZXH(this);"><img src="pic/ZXH.png">最小化</button><button onclick="cBox1F(1);"><img src="pic/CD.png">菜单</button><button onclick="Alert('Mine');"><img src="pic/CHAT.png">新消息</button>
     </div>
     <div id="cBox2">
-        <button onclick="cBox2F(1);"><img>返回</button><button onclick="cBox2F(2);"><img>刷新</button><button onclick="cBox2F(3);"><img>前进</button>
+        <button onclick="cBox2F(1);"><span style="font-size:200%;"><</span><br>返回</button><button onclick="cBox2F(2);"><img src="pic/home.png">主页</button><button onclick="cBox2F(3);"><span style="font-size:200%;">></span><br>前进</button>
         </div>
     <div id="cBox3">
-        <button><img>选择</button><button onclick="FBI(0);"><img>FBI</button><button onclick="IfmSize();"><img>换屏</button>
+        <button><img>选择</button><button onclick="FBI(0);"><span style="font-size:200%;">×</span><br>FBI</button><button onclick="IfmSize();"><img src="pic/HP.png">换屏</button>
     </div>
 </div>
 
@@ -58,14 +58,14 @@
     <br>
     <ul>
         <li>
-        <button class="alink" onclick="toUrl('src/li1.html');"><img src="pic/load.png" class="ic"></img><span class="lispan">深水鱼塘</span></button>
+        <button class="alink" onclick="toUrl('404.html');"><img src="pic/load.png" class="ic"></img><span class="lispan">深水鱼塘</span></button>
         </li>
         <li>
         <button class="alink" onclick="toUrl('src/wisdomclass.html');"><img src="pic/wisdomclass-icon.png" class="ic"></img><span class="lispan">智慧课堂</span></button>
         </li>
         <br>
         <li>
-            <button class="alink" onclick="Alert('Mine');"><img class="ic"></img><span class="lispan">更新日志</span></button>
+            <button class="alink" onclick="Alert('Mine');"><img class="ic" src="pic/info.png"></img><span class="lispan">更新日志</span></button>
             </li>
         <li>
         <button class="alink" onclick="SETTING('DK',0);"><img src="pic/golden_pickaxe.png" class="ic"></img><span class="lispan">页面设置</span></button>
@@ -73,7 +73,7 @@
         </ul>
         <br>
         <br>
-        <p style="font-size:80%;color:#777;">Version_WebView_1.0.0Beta
+        <p style="font-size:60%;color:#777;">Version_WebView_1.0.0Beta
         <br>Made By Taste_Steak
         </p>
 </div>
@@ -92,9 +92,9 @@
         <div style="overflow:scroll;height:65%;">
         <div class="alink" style="height:auto;">窗口显示
             <br>
-            <button class ="setbtn" onclick="SETTING('CKXS',0);">左边</button>
-            <button class="setbtn" onclick="SETTING('CKXS',1);">中间</button>
-            <button class="setbtn" onclick="SETTING('CKXS',2);">右边</button>
+            <button class ="setbtn" onclick="SETTING('CKXS',0);">靠左</button>
+            <button class="setbtn" onclick="SETTING('CKXS',1);">居中</button>
+            <button class="setbtn" onclick="SETTING('CKXS',2);">靠右</button>
             
         </div>
         
@@ -133,7 +133,7 @@
                 </p>
             </p>
     </div>
-        <div style="position:relative;top:5vh;"><button class="setbtn" onclick="Alert('GB');">我已了解</button></div>
+        <div style="position:relative;top:5vh;"><button class="setbtn" onclick="Alert('GB');localStorage.update = 1;">我已了解</button></div>
         </div>
     </div>
 </div>
@@ -142,6 +142,9 @@
     window.onload = function(){
         document.querySelector("#ifmMain").src="https://tastesteak.github.io/web/src/li2.html";
         document.querySelector("#viewportid").setAttribute("content","width="+localStorage.WebPixel);
+        if(localStorage.update < 1 || localStorage.update==undefined){
+            Alert('Mine');
+    }
     }
     var m1=0;
     var m2=0;
