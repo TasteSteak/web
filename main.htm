@@ -1,0 +1,251 @@
+﻿<html>
+<head>
+<title id="title">Steak Web</title>
+<meta charset="utf-8">
+<meta id="viewportid" content="width=device-width" name="viewport">
+<meta content="target-densitydpi=device-dpi,initial-scale=1.0, maximum-scale=3.0, user-scalable=1" name="viewport">
+<meta name="description" content="Steak Web由牛排吖制作，为上课摸鱼的同志们量身打造的网页。Steak Web以最简洁的界面容纳了简单实用功能，让您的网上冲浪体验更加舒心(bushi)。">
+<link rel="shortcut icon" href="pic/icon.png">
+<link rel="apple-touch-icon" href="pic/icon.png">
+<style>
+* {margin:0px;padding:0px;outline:none;}
+img {vertical-align:middle;}
+div::-webkit-scrollbar {display:none;}
+.nav {top:0px;z-index:100;position:fixed;width:40px;height:100%;background:#212529;transition:all 0.4s;overflow:hidden;box-shadow:4px 4px 4px #000;}
+.nav:hover {text-align:center;width:20vw;height:100%;box-shadow:4px 4px 8px #000;}
+
+.nav>div>.ttl {font-size:0%;color:#fff;font-weight:120;transition:all 0.2s ease;}
+.nav:hover>div>.ttl {font-size:160%;}
+.nav .lispan {line-height:5px;font-size:0px;transition:all 0.2s ease;color:#efefef;font-weight:350;}
+.nav:hover .lispan  {font-size:20px;}
+button::-webkit-scrollbar {display:none;}
+.nav .ic {vertical-align:middle;width:40px;transform:scale(0.8);background:rgba(245,245,246,0.05);transform-origin:50% 50%;border-radius:4px;transition:all 0.5s ease;}
+.nav:hover .ic {transform:scale(1);transform:rotate(-135deg);background:rgba(245,245,246,0);}
+.top {width:100%;height:42px;box-shadow:4px 4px 10px #222;position:absolute;bottom:0px;text-align:center;background:#222;}
+.main {float:right;width: calc(100% - 40px);height: calc(100% - 42px);background:rgb(245,245,246);}
+.alink {width:80%;height:40px;background:rgba(0,0,0,0.1);border:0px;border-radius:6px;}
+.alink:active {background:rgba(245,245,246,0.2);}
+ul:hover {background:rgba(0,0,0,0.05);border-left:4px solid rgba(0,0,0,0.2);border-right:4px solid rgba(0,0,0,0.2);}
+
+.topbtn {line-height:20px;position:relative;top:5%;width:14%;height:90%;border:0px;border-radius:2px;background:#efefef;font-weight:bold;font-size:110%;}
+.topbtn:active {background:rgba(245,245,246,0.8);}
+
+.ifm1 {width:100%;height:100%;border:0px;background:rgb(243,243,244);}
+.ifm2 {width:35%;height:100%;border:0px;background:rgb(243,243,244);position:relative;left:65%;}
+.ifm3 {width:35%;height:100%;border:0px;background:rgb(243,243,244);position:relative;left:0px;}
+.ifm4 {width:35%;height:100%;border:0px;background:rgb(243,243,244);position:relative;left:32.5%;}
+.setbtn {width:25%;height:40px;background:#666;color:#efefef;font-weight:600;font-size:24px;border:0px;border-radius:4px;}
+.setbtn:active {background:rgb(150,150,150);}
+
+</style>
+<script>
+if(window.location.search!=="?dd_nav_bgcolor=ff000000"){
+window.location.search="?dd_nav_bgcolor=ff000000"
+}
+</script>
+<script src="https://g.alicdn.com/dingding/dingtalk-jsapi/2.13.42/dingtalk.open.js"></script>
+</head>
+<body style="width:100%;height:100%;">
+<div class="nav">
+<br>
+<div style="height:6vh;margin-bottom:60px;border-bottom:1pt solid #efefef;">
+<span class="ttl">Steak Web</span>
+</div>
+<br>
+<div class="artic" style="width:100%;top:3vh;position:relative;">
+<ul>
+<li>
+<button class="alink" onclick="Dby();"><img src="pic/load.png" class="ic"></img><span class="lispan">深水鱼塘</span></button>
+</li>
+<li>
+<button class="alink" onclick="Alnk();"><img src="pic/compass.png" class="ic"></img><span class="lispan">导航页</span></button>
+</li>
+<li>
+<button class="alink" onclick="Otherl();"><img src="pic/golden_pickaxe.png" class="ic"></img><span class="lispan">页面设置</span></button>
+</li>
+</ul>
+</div>
+<div class="artic" style="width:100%;top:9vh;position:relative;">
+<ul>
+<li>
+<button class="alink" onclick="Lst1();"><img src="pic/nether_star.png" class="ic"></img><span class="lispan">原神抽卡模拟器</span></button>
+</li>
+<li>
+<button class="alink" onclick="Lst2();"><img src="pic/wisdomclass-icon.png" class="ic"></img><span class="lispan">智慧课堂</span></button>
+</li>
+<li>
+<button class="alink" onclick="window.open('src/Lck.html')"><img src="pic/barrier.png" class="ic"></img><span class="lispan">脚本锁</span></button>
+</li>
+</ul>
+</div>
+
+</div>
+<div class="main">
+<iframe class="ifm1" id="ifm" src="src/li2.html" onload="urlGet();"></iframe>
+
+
+</div>
+<div class="top">
+<input style="margin:0px 5px;" class="topbtn" type="button" value="FBI" onclick="Shutd();">
+<input style="margin-right:30px;" class="topbtn" type="button" value="窗口调整" onclick="rotated();">
+<input style="margin-left:30px;" class="topbtn" type="button" value="<" onclick="history.back();">
+<input style="margin:0px 5px;" class="topbtn" type="button" value=">" onclick="history.forward();">
+</div>
+<div style="top:0%;display:none;width:100%;height:100%;position:absolute;background:rgba(0,0,0,0.3);z-index:90;overflow:scroll;" class="setb">
+<div style="width:55%;height:80%;top:10%;left:22.5%;position:relative;border-radius:8px;background:rgb(245,245,246);box-shadow:4px 4px 10px #666;text-align:center;">
+<div style="position:relative;width:90%;height:90%;top:5%;left:5%;">
+<h1>页面设置</h1>
+<div style="width:100%;height:60%;overflow:scroll;">
+<div style="width:95%;top:5%;position:relative;padding:10px;border-bottom:1pt solid #ccc;">
+<span>设置默认窗口位置</span>
+<p>
+<button class ="setbtn" onclick="localStorage.rotateType='left';">左边</button>
+<button class="setbtn" onclick="localStorage.rotateType='middle';">中间</button>
+<button class="setbtn" onclick="localStorage.rotateType='right';">右边</button>
+</div>
+<div style="width:95%;top:5%;position:relative;padding:10px;border-bottom:1pt solid #ccc;">
+<span>设置页面背景</span>
+<p>
+<button class ="setbtn" onclick="localStorage.bgColor='white';">米白</button>
+<button class="setbtn" onclick="localStorage.bgColor='white2';">亮灰</button>
+<button class="setbtn" onclick="localStorage.bgColor='black';">黑色</button>
+</div>
+<div style="width:95%;top:5%;position:relative;padding:10px;border-bottom:1pt solid #ccc;">
+<span>设置网页当前分辨率</span>
+<p>
+<button class="setbtn" onclick="localStorage.WebPixel='device-width';ChangeWebP();">自动</button>
+<button class="setbtn" onclick="localStorage.WebPixel='720px';ChangeWebP();">720P</button>
+<button class="setbtn" onclick="localStorage.WebPixel='860px';ChangeWebP();">860P</button>
+<p>
+<button class ="setbtn" onclick="localStorage.WebPixel='900px';ChangeWebP();">900P</button>
+<button class="setbtn" onclick="localStorage.WebPixel='1080px';ChangeWebP();">1080P</button>
+<button class ="setbtn" onclick="localStorage.WebPixel='1440px';ChangeWebP();">2K</button>
+</div>
+</div>
+<div style="width:100%;position:relative;top:20%;">
+<button class="setbtn" style="width:35%;height:40px;border-radius:4px;" onclick="setTimeout('setSave();',10);mainColor();">保存</button>
+</div>
+</div>
+</div>
+</div>
+
+<div style="top:0%;position:fixed;width:100%;height:100%;background:#000;display:none;z-index:200;" class="shutdiv">
+<div style="width:100%;top:85vh;position:relative;color:rgb(30,30,30);font-size:80%;font-weight:250;text-align:center;" ontouchmove="unShut();">滑动以关闭</div>
+</div>
+
+<div style="transform-origin:50% 50%;position:fixed;width:100%;height: calc(100% - 42px);top:0%;background:rgba(0,0,0,0.3);display:none;z-index:190;" class="updateShut">
+<div style="width:60%;height:60%;top:20%;left:20%;position:relative;border-radius:8px;background:rgb(245,245,246);box-shadow:4px 4px 10px #666;text-align:center;">
+<div style="position:relative;width:70%;height:90%;top:5%;left:15%;">
+<div style="overflow:scroll;">
+<h2><img src="pic/load.png" style="width:30px;height:30px;"></img>更新内容</h2>
+<hr>
+<b>Version-0.5</b>
+<br>对于<kbd>FBI</kbd>的触发逻辑进行修改
+<br>位于导航页<img src="pic/barrier.png" style="width:20px;height:20px;"></img><b>脚本锁</b>的功能已经上线(初代),<i>仅适用于正规浏览器</i>
+<br>已修复屏幕分辨率过大时<kbd>FBI</kbd>使用出现的问题
+<br>已添加新的搜索引擎(原本为百度)，点击搜索框左边的图标以切换搜索引擎
+</div>
+</div>
+<div style="width:100%;position:relative;top:15%;">
+<button class="setbtn" style="width:35%;height:40px;border-radius:4px;" onclick="updateN();">我知道了</button>
+</div>
+</div>
+</div>
+</body>
+<script>
+if(localStorage.updateN < 4 || localStorage.updateN ==undefined){
+document.querySelector(".updateShut").style.display="block";
+}
+
+dd.ready(function() {
+dd.biz.navigation.setTitle({
+title:"."});})
+</script>
+<script>
+function updateN(){
+localStorage.updateN=4;
+document.querySelector(".updateShut").style.display="none";
+}
+
+var ifm = document.getElementById("ifm");
+window.onload = function(){
+var cw = window.innerWidth;
+document.querySelector(".main").style.width = cw - 40 +"px";
+
+setTimeout("mainColor();ChangeWebP();",0);
+}
+window.onresize = function(){
+var cw = window.innerWidth;
+document.querySelector(".main").style.width = cw - 40 +"px";
+}
+
+function ChangeWebP(){
+document.querySelector("#viewportid").setAttribute("content","width="+localStorage.WebPixel)
+}
+
+function Shutd(){
+document.querySelector(".shutdiv").style.display = "block";
+}
+function unShut(){
+document.querySelector(".shutdiv").style.display = "none";
+}
+
+function mainColor(){
+if(localStorage.bgColor=="white"){
+document.querySelector(".main").style.background = "rgb(245,245,246)";
+}
+if(localStorage.bgColor==undefined || localStorage.bgColor=="white2"){
+document.querySelector(".main").style.background = "#efefef";
+}
+if(localStorage.bgColor=="black"){
+document.querySelector(".main").style.background = "#161B22";
+}
+}
+
+
+var ct = 0;
+function rotated(){
+if(ct%2==0){
+if(localStorage.rotateType=="left"){
+ifm.className = "ifm3";
+}
+if(localStorage.rotateType=="middle"){
+ifm.className = "ifm4";
+}
+if(localStorage.rotateType=="right"){
+ifm.className = "ifm2";
+}
+if(localStorage.rotateType==undefined){
+ifm.className = "ifm2";
+}
+}
+if(ct%2==1){
+ifm.className = "ifm1";
+}
+ct++;
+}
+
+function Dby(){
+ifm.src = "src/li1.html";
+}
+function Alnk(){
+ifm.src = "src/li2.html";
+}
+function Otherl(){
+var x = document.querySelector(".setb");
+x.style.display = "block";
+}
+
+function setSave(){
+var x = document.querySelector(".setb");
+x.style.display = "none";
+}
+
+function Lst1(){
+ifm.src = "https://tools-wiki.biligame.com/ys/simulator/dist/wish";
+}
+function Lst2(){
+ifm.src = "src/wisdomclass.html";
+}
+
+</script>
