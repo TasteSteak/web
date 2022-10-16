@@ -2,10 +2,16 @@
 <meta content="target-densitydpi=device-dpi,initial-scale=1.0, maximum-scale=3.0, user-scalable=1" name="viewport">
 <meta name="description" content="Steak Web,为上课摸鱼的同志们量身打造的网页。">
 <title>Steak Web</title>
+<script src="https://g.alicdn.com/dingding/dingtalk-jsapi/2.13.42/dingtalk.open.js"></script>
 <script>
     if(window.location.search!=="?dd_nav_bgcolor=ff000000"){
     window.location.search="?dd_nav_bgcolor=ff000000"
     }
+
+dd.ready(function() {
+    dd.biz.navigation.setTitle({title:"."});
+    dd.biz.navigation.setIcon({showIcon:false});
+});
 </script>
 <style>
     *{margin:0px;padding:0px;vertical-align:middle;outline:none;}
@@ -17,7 +23,7 @@
     #cBox1{float:left;}
     #cBox2{float:right;}
 
-    #navB{width:200px;height:0px;background:rgb(245,245,246);position:absolute;left:0px;border-radius:4px;bottom:48px;overflow:hidden;transition:all 0.3s;box-shadow:3px 3px 5px rgba(0,0,0,0.3);text-align:center;}
+    #navB{width:200px;height:0px;background:rgb(245,245,246);position:absolute;left:0px;border-radius:4px;bottom:58px;overflow:hidden;transition:all 0.3s;box-shadow:3px 3px 5px rgba(0,0,0,0.3);text-align:center;}
     #mineB{left:48px;}
     #FBI{width:100%;height:100%;position:fixed;background:#000;display:none;}
     #ctrlBox button{width:48px;height:48px;background:rgba(245,245,246,0.85);border:0px;font-size:75%;color:rgb(120,120,120);transition:all 0.2s;}
@@ -28,18 +34,20 @@
     .alink:active {background:rgba(0,0,0,0.3);}
 .ic{vertical-align:middle;width:40px;transform:scale(0.8);background:rgba(245,245,246,0.15);}
 
-#ifmMain{transition:left 0.2s;}
+#ifmMain{transition:all 0.2s;transform-origin:50% 25%;}
 .ifm{width:100%;height:100%;position:relative;background:rgba(0,0,0,0.05);height:100%;border:0px;}
 .ifmL {width:31%;height:100%;border:0px;background:rgb(243,243,244);position:relative;left:0%;}
 .ifmM {width:31%;height:100%;border:0px;background:rgb(243,243,244);position:relative;left:34%;}
 .ifmR {width:31%;height:100%;border:0px;background:rgb(243,243,244);position:relative;left:69%;}
 
-#SETTING,#Mine{width:20%;height:60%;left:40%;top:-65%;transition:all 0.2s;position:absolute;background:rgb(245,245,246);border-radius:4px;box-shadow:3px 3px 6px #666;text-align:center;display:none;}
+#SETTING,#Mine{width:30%;height:60%;left:35%;top:-65%;transition:all 0.2s;position:absolute;background:rgb(245,245,246);border-radius:4px;box-shadow:3px 3px 6px #666;text-align:center;display:none;}
 .setbtn{width:20%;height:30px;background:rgb(44, 44, 44);border:0;border-radius:4px;border-bottom:1pt solid #ccc;color:#efefef;}
+
+#SizeBox{width:20%;height:40px;left:40%;bottom:58px;transition:all 0.2s;position:absolute;background:rgb(245,245,246);border-radius:4px;box-shadow:3px 3px 6px #666;text-align:center;display:none;}
 </style>
 <body>
     <div id="mainBox">
-<iframe src="" id="ifmMain" class="ifm"></iframe>
+<iframe id="ifmMain" class="ifm"></iframe>
 <div id="ctrlBox">
     <div id="cBox1">
         <button onclick="ZXH(this);"><img src="pic/ZXH.png">最小化</button><button onclick="cBox1F(1);"><img src="pic/CD.png">菜单</button><button onclick="Alert('Mine');"><img src="pic/CHAT.png">新消息</button>
@@ -48,7 +56,7 @@
         <button onclick="cBox2F(1);"><span style="font-size:200%;"><</span><br>返回</button><button onclick="cBox2F(2);"><img src="pic/home.png">主页</button><button onclick="cBox2F(3);"><span style="font-size:200%;">></span><br>前进</button>
         </div>
     <div id="cBox3">
-        <button><img>选择</button><button onclick="FBI(0);"><span style="font-size:200%;">×</span><br>FBI</button><button onclick="IfmSize();"><img src="pic/HP.png">换屏</button>
+        <button onclick="SizeChange();"><img>尺寸</button><button onclick="FBI(0);"><span style="font-size:200%;">×</span><br>FBI</button><button onclick="IfmSize();"><img src="pic/HP.png">换屏</button>
     </div>
 </div>
 
@@ -73,14 +81,15 @@
         </ul>
         <br>
         <br>
-        <p style="font-size:60%;color:#777;">Version_WebView_1.0.0Beta
+        <p style="font-size:60%;color:#777;">Version_WebView_1.0.2Beta
         <br>Made By Taste_Steak
         </p>
 </div>
     </div>
 
     <div id="FBI">
-        <div style="width:100%;position:absolute;bottom:10vh;color:rgb(24, 24, 24);text-align:center;font-size:90%;" onmouseup="FBI(1);">放手以关闭</div>
+        <div style="width:100%;position:absolute;bottom:10vh;color:rgb(40, 40, 40);text-align:center;font-size:90%;" onmouseup="FBI(1);">放手以关闭</div>
+        <div style="width:30%;position:absolute;left:35%;bottom:2vh;color:rgb(40, 40, 40);text-align:center;font-size:100%;" onmouseup="FBI(2);">强制FBI模式</div>
     </div>
 
 <div id="zheZhao" style="width:100%;height: calc(100% - 48px);position:fixed;background:rgba(0,0,0,0.1);display:none;transition:all 0.5s;">
@@ -115,21 +124,26 @@
         </div>
     </div>
 
-    <div id="Mine">
+    <div id="Mine" style="width:50%;left:25%;">
         <div style="position:relative;width:90%;height:90%;top:5%;left:5%;">
         <h3>更新日志</h3>
         <hr>
         <br>
         <div style="overflow:scroll;height:65%;">
-            <span style="font-size:80%;color:#ccc;">版本已更新至1.0.0Beta</span>
-            <p>
-                UI界面已更换，并优化了页面加载
-                <br>FBI触发逻辑已修复.
+            <span style="font-size:80%;color:#ccc;">版本已更新至1.0.2Beta</span>
+            <p style="border-left:1px solid #ccc;"><b>BUG修复</b><br>
+                1.修复了导航栏标题未被隐藏的问题
+                <br>2.修复了切换网页切回时原有的窗口网页被强制替换成主页的问题
+                <br>3.修复了下方菜单栏图标显示错误的问题
                 
                 <br><br>
-                <p>
-                    若不习惯使用新版本网页，可跳转至
-                    <br><i><a href="main.htm" style="text-decoration:none;color:rgb(226, 197, 101);font-size:70%;">https://tastesteak.github.io/web/main.htm</a></i>
+                <p style="border-left:1px solid #ccc;"><b>其他优化</b><br>
+                 1.现在已提供调整窗口网页的尺寸大小控制栏
+                 <br>2.菜单栏图标部分已被更改(待定)
+                 <br>3.针对部分设备视频强制被覆盖上层的问题新增「强制FBI」选项
+                </p>
+                 <p style="border-left:1px solid #ccc;"><br>旧版SteakWeb起始页链接
+                    <br><i><a href="main.htm" style="text-decoration:none;color:rgb(255, 156, 43);font-size:90%;">https://tastesteak.github.io/web/main.htm</a></i>
                 </p>
             </p>
     </div>
@@ -137,17 +151,38 @@
         </div>
     </div>
 </div>
+
+<div id="SizeBox">
+    <input type=range min=0.2 max=1 step="0.05" value=1 style="width:90%;height:100%;" onchange="SizeSave(this.value);" id="InputSize">
+</div>
 </body>
 <script>
     window.onload = function(){
-        document.querySelector("#ifmMain").src="https://tastesteak.github.io/web/src/li2.html";
+        var ifmMainK = document.getElementById("ifmMain");
+        ifmMainK.style.transform="scale(" + localStorage.ifmSize + ")";
+        document.getElementById("InputSize").value=localStorage.ifmSize;
+        if(!ifmMainK.src){
+        ifmMainK.src="https://tastesteak.github.io/web/src/li2.html";
+        }
         document.querySelector("#viewportid").setAttribute("content","width="+localStorage.WebPixel);
-        if(localStorage.update < 1 || localStorage.update==undefined){
+        if(localStorage.update < 2 || localStorage.update==undefined){
             Alert('Mine');
     }
     }
     var m1=0;
     var m2=0;
+
+    function SizeSave(n){
+        localStorage.ifmSize=n;
+        var x=document.getElementById("ifmMain");
+        x.style.transform="scale(" + n + ")";
+    }
+    function SizeChange(){
+        var SizeBox = document.getElementById("SizeBox");
+        if(m2%2==0){SizeBox.style.display="block";}
+        if(m2%2==1){SizeBox.style.display="none";}
+        m2++;
+    }
 
     function toUrl(url){
         Ifm.src=url;
@@ -172,9 +207,9 @@
         cBox1F();
     if(type=="DK"){
     document.querySelector("#zheZhao").style.display="block";
-    setTimeout('document.querySelector("#zheZhao").style.background="rgba(0,0,0,0.5)"',100);
+    setTimeout('document.querySelector("#zheZhao").style.background="rgba(0,0,0,0.5)"',200);
     document.querySelector("#SETTING").style.display="block";
-    setTimeout('document.querySelector("#SETTING").style.top="15%"',100);
+    setTimeout('document.querySelector("#SETTING").style.top="15%"',200);
     }
     if(type=="CKXS"){
         if(n==0){localStorage.rotateType='IfmL';}
@@ -192,8 +227,8 @@
     if(type=="GB"){
         document.querySelector("#zheZhao").style.background="rgba(0,0,0,0.1)";
         document.querySelector("#SETTING").style.top="-65%";
-        setTimeout('document.querySelector("#zheZhao").style.display="none";',100);
-        setTimeout('document.querySelector("#SETTING").style.display="none";',100);
+        setTimeout('document.querySelector("#zheZhao").style.display="none";',200);
+        setTimeout('document.querySelector("#SETTING").style.display="none";',200);
         return;
     }
     }
@@ -211,17 +246,26 @@
 
     var FBIB=document.querySelector("#FBI");
     function FBI(n){
+    document.getElementById("SizeBox").style.display="none";
+    m2=0;
+    
+    if(n==2){document.getElementById("ifmMain").style.display="none";}
+
     if(n==0)FBIB.style.display="block";
-    if(n==1)FBIB.style.display="none";
+    if(n==1){
+        FBIB.style.display="none";document.getElementById("ifmMain").style.display="block";
+            }
     }
 
     function ZXH(str){
     cBox1F();
+    document.getElementById("SizeBox").style.display="none";
+    m2=0;
     var m=document.querySelector("#ctrlBox");
     if(m.style.width=="48px"){m.style.width="100%";
-    str.innerHTML="<img>最小化";}
+    str.innerHTML="<img src='pic/ZXH.png'>最小化";}
     else{m.style.width="48px";
-    str.innerHTML="<img>恢复";}
+    str.innerHTML="<img src='pic/ZXH.png'>恢复";}
 
     }
     function cBox1F(n){
