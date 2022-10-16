@@ -34,7 +34,7 @@ dd.ready(function() {
     .alink:active {background:rgba(0,0,0,0.3);}
 .ic{vertical-align:middle;width:40px;transform:scale(0.8);background:rgba(245,245,246,0.15);}
 
-#ifmMain{transition:all 0.2s;transform-origin:50% 25%;}
+#ifmMain{transition:left 0.2s;transition:transform 0.2s;transform-origin:50% 25%;}
 .ifm{width:100%;height:100%;position:relative;background:rgba(0,0,0,0.05);height:100%;border:0px;}
 .ifmL {width:31%;height:100%;border:0px;background:rgb(243,243,244);position:relative;left:0%;}
 .ifmM {width:31%;height:100%;border:0px;background:rgb(243,243,244);position:relative;left:34%;}
@@ -89,7 +89,7 @@ dd.ready(function() {
 
     <div id="FBI">
         <div style="width:100%;position:absolute;bottom:10vh;color:rgb(40, 40, 40);text-align:center;font-size:90%;" onmouseup="FBI(1);">放手以关闭</div>
-        <div style="width:30%;position:absolute;left:35%;bottom:2vh;color:rgb(40, 40, 40);text-align:center;font-size:100%;" onmouseup="FBI(2);">强制FBI模式</div>
+        <div style="width:30%;position:absolute;left:35%;bottom:2vh;color:rgb(40, 40, 40);text-align:center;font-size:95%;" onmouseup="FBI(2);">开启/关闭强制FBI模式</div>
     </div>
 
 <div id="zheZhao" style="width:100%;height: calc(100% - 48px);position:fixed;background:rgba(0,0,0,0.1);display:none;transition:all 0.5s;">
@@ -171,6 +171,7 @@ dd.ready(function() {
     }
     var m1=0;
     var m2=0;
+    var m3=0;
 
     function SizeSave(n){
         localStorage.ifmSize=n;
@@ -249,11 +250,15 @@ dd.ready(function() {
     document.getElementById("SizeBox").style.display="none";
     m2=0;
     
-    if(n==2){document.getElementById("ifmMain").style.display="none";}
+    if(n==2){
+        if(m3%2==0)document.getElementById("ifmMain").style.display="none";
+        if(m3%2==1)document.getElementById("ifmMain").style.display="block";
+        m3++;
+    }
 
     if(n==0)FBIB.style.display="block";
     if(n==1){
-        FBIB.style.display="none";document.getElementById("ifmMain").style.display="block";
+        FBIB.style.display="none";document.getElementById("ifmMain").style.display="block";m3=0;
             }
     }
 
