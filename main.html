@@ -34,7 +34,7 @@ dd.ready(function() {
     .alink:active {background:rgba(0,0,0,0.3);}
 .ic{vertical-align:middle;width:40px;transform:scale(0.8);background:rgba(245,245,246,0.15);}
 
-#ifmMain{transition:left 0.2s;transition:transform 0.2s;transform-origin:50% 25%;}
+#ifmMain{transition:left 0.2s ,transform 0.2s;transform-origin:50% 25%;}
 .ifm{width:100%;height:100%;position:relative;background:rgba(0,0,0,0.05);height:100%;border:0px;}
 .ifmL {width:31%;height:100%;border:0px;background:rgb(243,243,244);position:relative;left:0%;}
 .ifmM {width:31%;height:100%;border:0px;background:rgb(243,243,244);position:relative;left:34%;}
@@ -43,11 +43,11 @@ dd.ready(function() {
 #SETTING,#Mine{width:30%;height:60%;left:35%;top:-65%;transition:all 0.2s;position:absolute;background:rgb(245,245,246);border-radius:4px;box-shadow:3px 3px 6px #666;text-align:center;display:none;}
 .setbtn{width:20%;height:30px;background:rgb(44, 44, 44);border:0;border-radius:4px;border-bottom:1pt solid #ccc;color:#efefef;}
 
-#SizeBox{width:20%;height:40px;left:40%;bottom:58px;transition:all 0.2s;position:absolute;background:rgb(245,245,246);border-radius:4px;box-shadow:3px 3px 6px #666;text-align:center;display:none;}
+#SizeBox{width:30%;height:40px;left:35%;bottom:58px;transition:all 0.2s;position:absolute;background:rgb(245,245,246);border-radius:4px;box-shadow:3px 3px 6px #666;text-align:center;display:none;}
 </style>
 <body>
     <div id="mainBox">
-<iframe id="ifmMain" class="ifm"></iframe>
+<iframe id="ifmMain" class="ifm" src="src/li2.html"></iframe>
 <div id="ctrlBox">
     <div id="cBox1">
         <button onclick="ZXH(this);"><img src="pic/ZXH.png">最小化</button><button onclick="cBox1F(1);"><img src="pic/CD.png">菜单</button><button onclick="Alert('Mine');"><img src="pic/CHAT.png">新消息</button>
@@ -153,7 +153,7 @@ dd.ready(function() {
 </div>
 
 <div id="SizeBox">
-    <input type=range min=0.2 max=1 step="0.05" value=1 style="width:90%;height:100%;" onchange="SizeSave(this.value);" id="InputSize">
+    <input type=range min=0.2 max=1 step="0.05" value=1 style="width:90%;height:100%;" onmowseup="SizeSave(this.value);" onmousemove="SizeSave(this.value);" ontouchstart="SizeSave(this.value);" ontouchmove="SizeSave(this.value);" id="InputSize">
 </div>
 </body>
 <script>
@@ -161,9 +161,6 @@ dd.ready(function() {
         var ifmMainK = document.getElementById("ifmMain");
         ifmMainK.style.transform="scale(" + localStorage.ifmSize + ")";
         document.getElementById("InputSize").value=localStorage.ifmSize;
-        if(!ifmMainK.src){
-        ifmMainK.src="https://tastesteak.github.io/web/src/li2.html";
-        }
         document.querySelector("#viewportid").setAttribute("content","width="+localStorage.WebPixel);
         if(localStorage.update < 2 || localStorage.update==undefined){
             Alert('Mine');
