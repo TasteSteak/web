@@ -1,7 +1,9 @@
 <meta id="viewportid" content="width=device-width" name="viewport">
 <meta content="target-densitydpi=device-dpi,initial-scale=1.0, maximum-scale=3.0, user-scalable=1" name="viewport">
-<meta name="description" content="Steak Web,为上课摸鱼的同志们量身打造的网页。">
+<meta name="description" content="Steak Web,一个简单无比的起始页。">
 <title>Steak Web</title>
+<link rel="shortcut icon" href="pic/icon.png">
+<link rel="apple-touch-icon" href="pic/icon.png">
 <script src="https://g.alicdn.com/dingding/dingtalk-jsapi/2.13.42/dingtalk.open.js"></script>
 <script>
     if(window.location.search!=="?dd_nav_bgcolor=ff000000"){
@@ -46,6 +48,7 @@ dd.ready(function() {
 #SizeBox{width:30%;height:40px;left:35%;bottom:58px;transition:all 0.2s;position:absolute;background:rgb(245,245,246);border-radius:4px;box-shadow:3px 3px 6px #666;text-align:center;display:none;}
 </style>
 <body>
+    <img src="pic/load.png" style="display:none;">
     <div id="mainBox">
 <iframe id="ifmMain" class="ifm" src="src/li2.html"></iframe>
 <div id="ctrlBox">
@@ -81,7 +84,7 @@ dd.ready(function() {
         </ul>
         <br>
         <br>
-        <p style="font-size:60%;color:#777;">Version_WebView_1.0.2Beta
+        <p style="font-size:60%;color:#777;">Version_WebView_1.0.3Beta
         <br>Made By Taste_Steak
         </p>
 </div>
@@ -130,30 +133,27 @@ dd.ready(function() {
         <hr>
         <br>
         <div style="overflow:scroll;height:65%;">
-            <span style="font-size:80%;color:#ccc;">版本已更新至1.0.2Beta</span>
+            <span style="font-size:80%;color:#ccc;">版本已更新至1.0.3Beta</span>
             <p style="border-left:1px solid #ccc;"><b>BUG修复</b><br>
-                1.修复了导航栏标题未被隐藏的问题
-                <br>2.修复了切换网页切回时原有的窗口网页被强制替换成主页的问题
-                <br>3.修复了下方菜单栏图标显示错误的问题
+                1.修复了调节尺寸大小滑块互动异常问题
+                <br>2.修复了屏幕共享只有鼠标没有画面的问题
                 
                 <br><br>
                 <p style="border-left:1px solid #ccc;"><b>其他优化</b><br>
-                 1.现在已提供调整窗口网页的尺寸大小控制栏
-                 <br>2.菜单栏图标部分已被更改(待定)
-                 <br>3.针对部分设备视频强制被覆盖上层的问题新增「强制FBI」选项
+                 1.啊哦，啥也没有哦:D
                 </p>
                  <p style="border-left:1px solid #ccc;"><br>旧版SteakWeb起始页链接
                     <br><i><a href="main.htm" style="text-decoration:none;color:rgb(255, 156, 43);font-size:90%;">https://tastesteak.github.io/web/main.htm</a></i>
                 </p>
             </p>
     </div>
-        <div style="position:relative;top:5vh;"><button class="setbtn" onclick="Alert('GB');localStorage.update = 2;">我已了解</button></div>
+        <div style="position:relative;top:5vh;"><button class="setbtn" onclick="Alert('GB');localStorage.update = 3;">我已了解</button></div>
         </div>
     </div>
 </div>
 
 <div id="SizeBox">
-    <input type=range min=0.2 max=1 step="0.05" value=1 style="width:90%;height:100%;" onmowseup="SizeSave(this.value);" onmousemove="SizeSave(this.value);" ontouchstart="SizeSave(this.value);" ontouchmove="SizeSave(this.value);" id="InputSize">
+    <input type=range min=0.2 max=1 step="0.05" value=1 style="width:90%;height:100%;" onmowseup="SizeSave(this.value);" onmousemove="SizeSave(this.value);" ontouchstart="SizeSave(this.value);" ontouchmove="SizeSave(this.value); onfocus="SizeSave(this.value);" id="InputSize">
 </div>
 </body>
 <script>
@@ -162,7 +162,7 @@ dd.ready(function() {
         ifmMainK.style.transform="scale(" + localStorage.ifmSize + ")";
         document.getElementById("InputSize").value=localStorage.ifmSize;
         document.querySelector("#viewportid").setAttribute("content","width="+localStorage.WebPixel);
-        if(localStorage.update < 2 || localStorage.update==undefined){
+        if(localStorage.update < 3 || localStorage.update==undefined){
             Alert('Mine');
     }
     }
