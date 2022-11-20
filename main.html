@@ -1,3 +1,5 @@
+<html>
+<head>
 <meta id="viewportid" content="width=device-width" name="viewport">
 <meta content="target-densitydpi=device-dpi,initial-scale=1.0, maximum-scale=3.0, user-scalable=1" name="viewport">
 <meta name="description" content="Steak Web,一个简单无比的起始页。">
@@ -47,8 +49,9 @@ dd.ready(function() {
 
 #SizeBox{width:30%;height:40px;left:35%;bottom:58px;transition:all 0.2s;position:absolute;background:rgb(245,245,246);border-radius:4px;box-shadow:3px 3px 6px #666;text-align:center;display:none;}
 </style>
+</head>
 <body>
-    <img src="pic/load.png" style="width:0px;height:0px;"></img>
+    <img src="pic/load.png" style="position:absolute;top:-1000%;"></img>
     <div id="mainBox">
 <iframe id="ifmMain" class="ifm" src="src/li2.html"></iframe>
 <div id="ctrlBox">
@@ -286,3 +289,4 @@ dd.ready(function() {
         if(n==3)history.forward();
     }
 </script>
+</html>
